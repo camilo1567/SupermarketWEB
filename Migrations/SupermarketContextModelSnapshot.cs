@@ -56,6 +56,40 @@ namespace FirstWebApp.Migrations
                     b.ToTable("Categories");
                 });
 
+            modelBuilder.Entity("FirstWebApp.Models.Customer", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("Address")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("Birthday")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("DocumentNumber")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Email")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("FirstName")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("LastName")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("PhoneNumber")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Customers");
+                });
+
             modelBuilder.Entity("FirstWebApp.Models.Detail", b =>
                 {
                     b.Property<int>("Id")
@@ -78,10 +112,6 @@ namespace FirstWebApp.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("InvoiceId");
-
-                    b.HasIndex("ProductId");
-
                     b.ToTable("Details");
                 });
 
@@ -99,12 +129,40 @@ namespace FirstWebApp.Migrations
                     b.Property<DateTime>("Date")
                         .HasColumnType("datetime2");
 
+                    b.Property<int?>("DetailId")
+                        .HasColumnType("int");
+
                     b.Property<int>("PayModeId")
                         .HasColumnType("int");
 
                     b.HasKey("Id");
 
+                    b.HasIndex("CustomerId");
+
+                    b.HasIndex("DetailId");
+
+                    b.HasIndex("PayModeId");
+
                     b.ToTable("Invoices");
+                });
+
+            modelBuilder.Entity("FirstWebApp.Models.PayMode", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("Name")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Observation")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("PayModes");
                 });
 
             modelBuilder.Entity("FirstWebApp.Models.Product", b =>
@@ -118,6 +176,9 @@ namespace FirstWebApp.Migrations
                     b.Property<int>("CategoryId")
                         .HasColumnType("int");
 
+                    b.Property<int?>("DetailId")
+                        .HasColumnType("int");
+
                     b.Property<string>("Name")
                         .HasColumnType("nvarchar(max)");
 
@@ -128,6 +189,8 @@ namespace FirstWebApp.Migrations
                         .HasColumnType("int");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("DetailId");
 
                     b.ToTable("Products");
                 });
@@ -147,23 +210,51 @@ namespace FirstWebApp.Migrations
                         .IsRequired();
                 });
 
+            modelBuilder.Entity("FirstWebApp.Models.Invoice", b =>
+                {
+                    b.HasOne("FirstWebApp.Models.Customer", "Customer")
+                        .WithMany("Invoice")
+                        .HasForeignKey("CustomerId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("FirstWebApp.Models.Detail", null)
+                        .WithMany("Invoices")
+                        .HasForeignKey("DetailId");
+
+                    b.HasOne("FirstWebApp.Models.PayMode", "PayMode")
+                        .WithMany("Invoice")
+                        .HasForeignKey("PayModeId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Customer");
+
+                    b.Navigation("PayMode");
+                });
+
+            modelBuilder.Entity("FirstWebApp.Models.Product", b =>
+                {
+                    b.HasOne("FirstWebApp.Models.Detail", null)
+                        .WithMany("Products")
+                        .HasForeignKey("DetailId");
+                });
+
+            modelBuilder.Entity("FirstWebApp.Models.Customer", b =>
+                {
+                    b.Navigation("Invoice");
+                });
+
             modelBuilder.Entity("FirstWebApp.Models.Detail", b =>
                 {
-                    b.HasOne("FirstWebApp.Models.Invoice", "Invoice")
-                        .WithMany()
-                        .HasForeignKey("InvoiceId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                    b.Navigation("Invoices");
 
-                    b.HasOne("FirstWebApp.Models.Product", "Product")
-                        .WithMany()
-                        .HasForeignKey("ProductId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                    b.Navigation("Products");
+                });
 
+            modelBuilder.Entity("FirstWebApp.Models.PayMode", b =>
+                {
                     b.Navigation("Invoice");
-
-                    b.Navigation("Product");
                 });
 #pragma warning restore 612, 618
         }

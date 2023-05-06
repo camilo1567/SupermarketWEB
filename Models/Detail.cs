@@ -12,7 +12,7 @@ namespace FirstWebApp.Models
 
         [Column(TypeName = "decimal(6,2)")]
         public decimal Price { get; set; }
-        public Product Product { get; set; }
-        public Invoice Invoice { get; set; }
+        public ICollection<Product>? Products { get; set; } = default!;
+        public ICollection<Invoice>? Invoices { get; set; } = default!;
     }
 }

@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "8OcNEobs6H/i4XiECdPN/hq5njwbQfmZP0fnbpIyuko=",
+  "Hash": "EoeTtSGSFIlct5cqQjPUu8zcdzaDijL35HI+jhC+EMY=",
   "Source": "FirstWebApp",
   "BasePath": "_content/FirstWebApp",
   "Mode": "Default",
@@ -83,6 +83,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\favicon.ico"
+    },
+    {
+      "Identity": "C:\\Users\\ADMIN\\source\\repos\\FirstWebApp\\wwwroot\\img\\fcecepLogo.png",
+      "SourceId": "FirstWebApp",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\ADMIN\\source\\repos\\FirstWebApp\\wwwroot\\",
+      "BasePath": "_content/FirstWebApp",
+      "RelativePath": "img/fcecepLogo.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\img\\fcecepLogo.png"
     },
     {
       "Identity": "C:\\Users\\ADMIN\\source\\repos\\FirstWebApp\\wwwroot\\js\\site.js",

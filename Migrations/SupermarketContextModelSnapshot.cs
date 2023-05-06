@@ -132,6 +132,9 @@ namespace FirstWebApp.Migrations
                     b.Property<int?>("DetailId")
                         .HasColumnType("int");
 
+                    b.Property<int>("Number")
+                        .HasColumnType("int");
+
                     b.Property<int>("PayModeId")
                         .HasColumnType("int");
 

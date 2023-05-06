@@ -12,7 +12,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace FirstWebApp.Migrations
 {
     [DbContext(typeof(SupermarketContext))]
-    [Migration("20230506122346_Tables")]
+    [Migration("20230506223900_Tables")]
     partial class Tables
     {
         /// <inheritdoc />
@@ -133,6 +133,9 @@ namespace FirstWebApp.Migrations
                         .HasColumnType("datetime2");
 
                     b.Property<int?>("DetailId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("Number")
                         .HasColumnType("int");
 
                     b.Property<int>("PayModeId")

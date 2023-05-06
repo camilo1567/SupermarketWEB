@@ -8,7 +8,7 @@
         public DateTime Date { get; set; }
         public int PayModeId { get; set; }
 
-        public Customer Customer { get; set; } = default!;
-        public PayMode PayMode { get; set; } = default!;
+        public ICollection<Customer>? Customer { get; set; } = default!;
+        public ICollection<PayMode>? PayMode { get; set; } = default!;
     }
 }

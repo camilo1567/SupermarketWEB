@@ -1,11 +1,12 @@
 {
   "version": 2,
-  "dgSpecHash": "dPxRw6tYedqPpZpAlLJDXdG/feAFR1FnU4yLdo26zv75Mxh23gc09yqpEHtdsy3/JzcnZsUY3ERxZxA0xjEi4w==",
+  "dgSpecHash": "YtsTeCKlyxZQiF/K2DtR3qzCRAL4H7WrKKIKlJdHS8MxEHNyjNXEcEAvtIfqpwscykvYlzG9Xi6jeuoJjV9U2Q==",
   "success": true,
   "projectFilePath": "C:\\Users\\ADMIN\\source\\repos\\FirstWebApp\\FirstWebApp.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\ADMIN\\.nuget\\packages\\azure.core\\1.24.0\\azure.core.1.24.0.nupkg.sha512",
     "C:\\Users\\ADMIN\\.nuget\\packages\\azure.identity\\1.6.0\\azure.identity.1.6.0.nupkg.sha512",
+    "C:\\Users\\ADMIN\\.nuget\\packages\\font-awesome\\4.7.0\\font-awesome.4.7.0.nupkg.sha512",
     "C:\\Users\\ADMIN\\.nuget\\packages\\humanizer.core\\2.14.1\\humanizer.core.2.14.1.nupkg.sha512",
     "C:\\Users\\ADMIN\\.nuget\\packages\\microsoft.bcl.asyncinterfaces\\1.1.1\\microsoft.bcl.asyncinterfaces.1.1.1.nupkg.sha512",
     "C:\\Users\\ADMIN\\.nuget\\packages\\microsoft.csharp\\4.5.0\\microsoft.csharp.4.5.0.nupkg.sha512",
